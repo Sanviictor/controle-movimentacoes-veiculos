@@ -20,7 +20,7 @@ O sistema foi aplicado em ambiente real de estágio, executado em um **servidor 
 * Cadastro, listagem, atualização e exclusão de veículos 🚘
 * Registro de entradas e saídas, com horário e quilometragem ⏱️
 * Associação de condutores aos veículos 👨‍👷
-* Interface intuitiva e responsiva
+* Interface intuitiva
 * CRUD completo integrado ao banco MySQL
 
 ---
