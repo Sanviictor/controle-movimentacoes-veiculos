@@ -1,0 +1,60 @@
+<div class="list-container">
+  <div class="list-header">
+    <i class="icon-presentes"></i>
+    <h4>Veículos Presentes na Empresa</h4>
+  </div>
+  
+  <div *ngIf="veiculosPresentesLista$ | async as presentes; else loading">
+    <div *ngIf="presentes.length > 0; else nenhumPresente">
+      
+      <div class="card-list">
+        <div class="veiculo-card" *ngFor="let veiculo of presentes">
+          <div class="veiculo-textos">
+            <span class="placa">{{veiculo.placa}}</span>
+            <span class="nome">{{ formatarNomeComposto(veiculo.motorista) }}</span>
+            <span class="status">Entrada: {{ veiculo.ultimaMovimentacao | date: 'HH:mm' }}</span>
+          </div>
+          <img [src]="getVeiculoImage(veiculo.modelo)" 
+                alt="{{ veiculo.modelo }}" 
+                class="veiculo-img">
+        </div>
+      </div>
+
+    </div>
+    <ng-template #nenhumPresente>
+      <div class="mensagem-vazia">Nenhum veículo presente no momento.</div>
+    </ng-template>
+  </div>
+</div>
+
+<div class="list-container">
+  <div class="list-header">
+    <i class="icon-fora"></i>
+    <h4>Veículos Fora da Empresa</h4>
+  </div>
+  <div *ngIf="veiculosAusentesLista$ | async as ausentes; else loading">
+    <div *ngIf="ausentes.length > 0; else nenhumAusente">
+
+      <div class="card-list">
+        <div class="veiculo-card fora" *ngFor="let veiculo of ausentes">
+          <div class="veiculo-textos">
+            <span class="placa">{{veiculo.placa}}</span>
+            <span class="nome">{{ formatarNomeComposto(veiculo.motorista) }}</span>
+            <span class="status">Saída: {{ veiculo.ultimaMovimentacao | date: 'HH:mm' }}</span>
+          </div>
+          <img [src]="getVeiculoImage(veiculo.modelo)" 
+                alt="{{ veiculo.modelo }}" 
+                class="veiculo-img">
+        </div>
+      </div>
+      
+    </div>
+    <ng-template #nenhumAusente>
+      <div class="mensagem-vazia">Nenhum veículo fora no momento.</div>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="mensagem-vazia">Carregando...</div>
+</ng-template>

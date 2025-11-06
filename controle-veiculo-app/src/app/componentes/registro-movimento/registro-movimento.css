@@ -1,0 +1,169 @@
+/* --- CONTAINER DO FORMULÁRIO --- */
+.card-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: solid #f7f7f7;
+  border-radius: 8px;
+  font-weight: lighter;
+}
+
+h3 {
+  font-weight: lighter;
+}
+
+/* --- GRUPOS DE FORMULÁRIO E LAYOUT --- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.container-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 25px;
+}
+
+.tipo-movimento,
+.horario-container {
+  flex-grow: 1;
+}
+
+/* --- LISTA DE AUTOCOMPLETAR --- */
+.autocomplete-list {
+  border: 1px solid #eeeeee;
+  background-color: #eeeeee;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 0;
+  margin-top: 5px;
+  list-style: none;
+  box-sizing: border-box;
+  color: #212121;
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.autocomplete-list li:hover {
+  background-color: #dcdcdc;
+}
+
+/* --- ELEMENTOS GERAIS DO FORMULÁRIO --- */
+label {
+  display: block;
+  font-weight: lighter;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  color: #969696;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
+
+.radio-group label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA INPUT DATETIME-LOCAL --- */
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  color: #212121;
+  font-weight: lighter;
+  font-size: 14px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="datetime-local"]:focus {
+  outline: none;
+  background-color: #e0e0e0;
+  box-shadow: 0 0 5px rgba(33,33,33,0.2);
+}
+
+input[type="datetime-local"]::placeholder {
+  color: #969696;
+  font-weight: lighter;
+}
+
+/* --- NOVO: DATA E HORA LADO A LADO --- */
+.horario-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.horario-container label {
+  font-weight: lighter;
+  margin-bottom: 4px;
+}
+
+.horario-container input[type="date"],
+.horario-container input[type="time"] {
+  width: auto;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  color: #212121;
+  font-weight: lighter;
+  box-sizing: border-box;
+}
+
+.horario-container input[type="date"]:focus,
+.horario-container input[type="time"]:focus {
+  outline: none;
+  background-color: #e0e0e0;
+  box-shadow: 0 0 5px rgba(33,33,33,0.2);
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 500px) {
+  .horario-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .horario-container input[type="date"],
+  .horario-container input[type="time"] {
+    width: 100%;
+  }
+}
+
+.alert{
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 20px;
+}

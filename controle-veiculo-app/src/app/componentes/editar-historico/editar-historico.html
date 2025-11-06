@@ -1,0 +1,75 @@
+<div class="modal-overlay" (click)="onCancelar()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Editar Movimentação</h3>
+    <p>Veículo atual: <strong>{{ movimentacaoEditada.veiculo.placa }}</strong></p>
+
+    <form (ngSubmit)="onSalvar()" #editarForm="ngForm">
+      <!-- Seleção de veículo -->
+      <div class="form-group">
+        <label for="veiculo">Placa do Veículo</label>
+        <select id="veiculo" name="veiculo" [(ngModel)]="selectedVeiculoId" required>
+          <option *ngFor="let v of veiculos" [ngValue]="v.id">
+            {{ v.placa }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Quilometragem -->
+      <div class="form-group">
+        <label for="quilometragem">Quilometragem (km)</label>
+        <input
+          type="number"
+          id="quilometragem"
+          name="quilometragem"
+          [(ngModel)]="movimentacaoEditada.quilometragem"
+          required
+        />
+      </div>
+
+      <!-- Data e hora -->
+      <div class="form-group">
+        <label for="dataHora">Data e Hora</label>
+        <input
+          type="datetime-local"
+          id="dataHora"
+          name="dataHora"
+          [ngModel]="formatarData(movimentacaoEditada.dataHora)"
+          (ngModelChange)="atualizarData($event)"
+          required
+        />
+      </div>
+
+      <!-- Motorista -->
+      <div class="form-group">
+        <label for="motorista">Motorista</label>
+        <input
+          type="text"
+          id="motorista"
+          name="motorista"
+          [(ngModel)]="movimentacaoEditada.motorista"
+          placeholder="Nome do motorista"
+        />
+      </div>
+
+      <!-- Porteiro -->
+      <div class="form-group">
+        <label for="porteiro">Porteiro</label>
+        <input
+          type="text"
+          id="porteiro"
+          name="porteiro"
+          [(ngModel)]="porteiro"
+          placeholder="Nome do porteiro"
+        />
+      </div>
+
+      <!-- Botões -->
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="onCancelar()">Cancelar</button>
+        <button type="submit" class="btn-save" [disabled]="!editarForm.valid">
+          Salvar Alterações
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

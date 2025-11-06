@@ -1,0 +1,13 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* altura total da tela */
+}
+
+router-outlet {
+  flex: 1; /* ocupa o espaço restante */
+}
+
+app-footer {
+  margin-top: 20px; /* opcional, ainda dá um espacinho extra */
+}

@@ -1,0 +1,37 @@
+/* Estiliza o container principal do cabeçalho (a barra no topo) */
+header {
+  background-color: #f0f0f0; /* Define uma cor de fundo cinza claro */
+  padding: 20px;             /* Adiciona um espaçamento interno de 20px em todos os lados */
+  align-items: center;       /* Alinha verticalmente os itens (logo e título) ao centro */
+  display: flex;             /* Habilita o layout Flexbox, que facilita o alinhamento */
+  max-height: 55px;
+}
+
+/* Estiliza a imagem do logo dentro do cabeçalho */
+img {
+    display: block;      /* Garante que a imagem se comporte como um bloco, facilitando o alinhamento */
+    margin: 0 auto;      /* Centraliza a imagem horizontalmente se o container for maior que ela */
+    max-width: 80px;    /* Define a largura máxima que a imagem pode atingir */
+    width: 60%;          /* Faz a imagem ocupar 60% da largura do seu container, tornando-a responsiva */
+    height: auto;        /* Mantém a proporção da imagem ao redimensionar a largura */
+}
+
+/* Estiliza o container do título no cabeçalho */
+.titulo {
+    flex-grow: 1;           /* Faz este elemento "crescer" para ocupar todo o espaço livre no header */
+    text-align: center;     /* Centraliza o texto dentro deste container */
+    margin: 0 auto;         /* Ajuda na centralização geral */
+    padding-right: 125px;   /* Adiciona um espaçamento à direita, possivelmente para compensar o espaço do logo e centralizar o texto visualmente na página */
+}
+
+/* Estiliza o título principal */
+h1 {
+  font-size: 24px;   /* Define o tamanho da fonte */
+  color: #333;       /* Define a cor do texto para um cinza escuro */
+}
+
+/* Estiliza o subtítulo */
+h2 {
+  font-size: 16px;   /* Define o tamanho da fonte */
+  color: #666;       /* Define a cor do texto para um cinza médio */
+}

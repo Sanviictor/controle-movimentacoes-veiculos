@@ -1,0 +1,115 @@
+/* --- CONTAINER E TÍTULO --- */
+
+/* Container principal do formulário, estilizado como um card. */
+.edit-form-card {
+    background-color: #ffffff;
+    padding: 2rem;                    /* Espaçamento interno generoso. */
+    border-radius: 0.75rem;           /* Cantos arredondados. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidade. */
+    max-width: 900px;                 /* Largura máxima do formulário. */
+    margin: 2rem auto;                /* Centraliza o card na página com margens verticais. */
+}
+
+/* Título do formulário (h4). */
+.edit-form-card h4 {
+    font-size: 1rem;
+    font-weight: lighter;             /* Fonte mais leve para um visual suave. */
+    color: #1a202c;
+    margin-bottom: 1.5rem;            /* Espaço abaixo do título. */
+    text-align: start;                /* Alinha o texto à esquerda. */
+}
+
+/* --- LAYOUT DO FORMULÁRIO --- */
+
+/* Layout de grade para os campos do formulário. */
+.form-grid {
+    display: grid;
+    /* Cria 2 colunas de largura igual que se ajustam ao espaço disponível. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;                      /* Espaçamento entre as colunas e linhas da grade. */
+}
+
+/* Estilo para cada grupo de formulário (rótulo + input). */
+.form-group {
+    display: flex;
+    flex-direction: column;           /* Empilha o rótulo (label) e o campo (input) verticalmente. */
+}
+
+/* --- CAMPOS E RÓTULOS --- */
+
+/* Rótulos (labels) dos campos. */
+.form-group label {
+    font-size: 0.875rem;
+    color: #000;
+    margin-bottom: 0.5rem;            /* Espaço entre o rótulo e o campo de input. */
+    font-weight: bold;                /* Texto em negrito para destaque. */
+}
+
+/* Campos de input. */
+.form-group input {
+    width: 100%;                      /* O input ocupa 100% da largura da coluna da grade. Usar 100% é mais comum que 50% neste contexto de grid. */
+    padding: 0.75rem 1rem;            /* Espaçamento interno. */
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #2d3748;
+    transition: all 0.2s ease-in-out; /* Transição suave para efeitos de foco. */
+}
+
+/* Efeito de foco para os campos de input, melhora a acessibilidade e UX. */
+.form-group input:focus {
+    outline: none;                    /* Remove a borda de foco padrão do navegador. */
+    border-color: #4c51bf;            /* Muda a cor da borda para indicar foco. */
+    /* Adiciona uma sombra externa (glow) para um destaque mais visível. */
+    box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.2);
+}
+
+/* --- BOTÕES DE AÇÃO --- */
+
+/* Container para os botões do formulário (Salvar, Cancelar). */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;        /* Alinha os botões à direita. */
+    gap: 1rem;                        /* Espaço entre os botões. */
+    margin-top: 2rem;                 /* Espaço acima dos botões. */
+}
+
+/* Estilo base para os botões de ação. */
+.action-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out; /* Transição suave para o efeito :hover. */
+    cursor: pointer;
+    border: none;
+}
+
+/* Estilos específicos para o botão de salvar. */
+.save-button {
+    background-color: #1d1e29;        /* Cor de fundo escura. */
+    color: #ffffff;                   /* Texto branco. */
+}
+
+.save-button:hover {
+    background-color: #3b418a;        /* Cor de fundo ao passar o mouse. */
+}
+
+/* Estilos específicos para o botão de cancelar. */
+.cancel-button {
+    background-color: #e2e8f0;        /* Cor de fundo cinza claro. */
+    color: #2d3748;                   /* Texto escuro. */
+}
+
+.cancel-button:hover {
+    background-color: #cbd5e0;        /* Cor de fundo ao passar o mouse. */
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Aplica estes estilos em telas com largura máxima de 768px (tablets e celulares). */
+@media (max-width: 768px) {
+    .form-grid {
+        /* Altera a grade para ter apenas 1 coluna, empilhando os campos. */
+        grid-template-columns: 1fr;
+    }
+}

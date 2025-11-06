@@ -1,0 +1,105 @@
+<div class="card-form">
+  <h3>Registrar Movimentação</h3>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- Autocomplete Veículo -->
+    <div class="form-group">
+      <label for="veiculo-input">Selecionar Veículo</label>
+      <input
+        id="veiculo-input"
+        type="text"
+        [(ngModel)]="searchTerm"
+        [ngModelOptions]="{standalone: true}"
+        (input)="filterVeiculos()"
+        (focus)="onFocusInput()"
+        (blur)="onBlurInput()"
+        placeholder="Digite a placa..."
+        class="form-control"
+      />
+      <ul *ngIf="filteredVeiculos.length > 0 && isAutocompleteVisible" class="autocomplete-list">
+        <li *ngFor="let veiculo of filteredVeiculos" (click)="selectVeiculo(veiculo)">
+          {{ veiculo.placa }} - {{ formatarNomeComposto(veiculo.motorista) }} -- {{ veiculo.modelo }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tipo de Movimento e Data/Hora -->
+    <div class="form-group container-form-group">
+
+      <!-- Tipo de Movimento -->
+      <div class="tipo-movimento">
+        <label>Tipo de Movimento</label>
+        <div class="radio-group">
+          
+          <input type="radio" id="saida" name="tipoMovimento" value="saida"
+          [(ngModel)]="tipoMovimento" >
+          <label for="saida">Saída</label>
+          
+          <input type="radio" id="entrada" name="tipoMovimento" value="entrada"
+                [(ngModel)]="tipoMovimento" >
+          <label for="entrada">Entrada</label>
+        </div>
+      </div>
+
+      <!-- Data e Hora -->
+      <div class="horario-container">
+        <label>Data :</label>
+        <input type="date" [(ngModel)]="dataMovimento" name="dataMovimento">
+
+        <label>Hora :</label>
+        <input type="time" [(ngModel)]="horaMovimento" name="horaMovimento">
+      </div>
+
+    </div>
+
+    <!-- Quilometragem -->
+    <div class="form-group">
+      <label for="quilometragem">Quilometragem (km)</label>
+      <input
+        type="number"
+        id="quilometragem"
+        name="quilometragem"
+        [(ngModel)]="quilometragem"
+        placeholder="Digite a quilometragem atual..."
+        required
+      >
+    </div>
+
+    <!-- Motorista -->
+    <div class="form-group">
+      <label for="motorista">Selecionar Motorista</label>
+        <input type="text"
+            [(ngModel)]="motorista"
+            [ngModelOptions]="{standalone: true}"
+            (input)="onMotoristaInput()"
+            (focus)="onFocusMotorista()"
+            (blur)="onBlurMotorista()"
+            placeholder="Digite o nome do motorista" />
+        <ul #motoristaList *ngIf="filteredMotoristas.length > 0 && isMotoristaAutocompleteVisible" class="autocomplete-list">
+          <li *ngFor="let nome of filteredMotoristas" (click)="selectMotorista(nome)">
+            {{ nome }}
+          </li>
+        </ul>
+    </div>
+
+    <!-- Porteiro -->
+    <div class="form-group">
+      <label for="porteiro">Porteiro</label>
+      <input type="text" id="porteiro" name="porteiro" [(ngModel)]="porteiro" placeholder="Nome do porteiro">
+    </div>
+
+    <!-- Botão -->
+    <button type="submit">Registrar {{ tipoMovimento === 'entrada' ? 'Entrada' : 'Saída' }}</button>
+
+  </form>
+
+  <!-- Mensagens de feedback -->
+  <div *ngIf="mensagemSucesso" class="alert alert-success">
+    {{ mensagemSucesso }}
+  </div>
+  <div *ngIf="mensagemErro" class="alert alert-danger">
+    {{ mensagemErro }}
+  </div>
+
+</div>

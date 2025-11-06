@@ -1,0 +1,39 @@
+<div class="card-list-container" >
+  <div class="header-list">
+    <h4>Veículos Cadastrados</h4>
+    <button class="new-vehicle-button" (click)="onCreation()">
+      <img src="assets/plus.png" alt="add" class="icon-plus"> Novo Veículo
+    </button>
+  </div>
+  <app-tela-cadastro *ngIf="creationVeiculo" (cancel)="onCreationCancel()" (save)="onCreationSaved($event)" ></app-tela-cadastro>
+
+    <div *ngIf="veiculos.length > 0; else nenhumCadastro">
+      <div *ngFor="let veiculo of veiculos">
+            <!-- Card de Visualização (Mostrado apenas se o veículo não estiver em edição) -->
+            <div class="veiculo-card" *ngIf="veiculo.id !== editingVeiculoId">
+                <div class="veiculo-info">
+                    <span class="placa">{{ veiculo.placa }}</span>
+                    <div class="detalhes">
+                        <h5>{{ veiculo.marca }} {{ veiculo.modelo }}</h5>
+                        <p>Motorista: {{ formatarNomeComposto(veiculo.motorista) }} <!--• Cor: {{ veiculo.cor }}--></p>
+                    </div>
+                </div>
+                <div class="veiculo-actions">
+                  <button class="action-button edit-button" (click)="onEdit(veiculo.id)">
+                    <img src="assets/editar.png" alt="Editar" class="icon-edit">
+                  </button>
+                  <button class="action-button delete-button" (click)="onDelete(veiculo.id)">
+                    <img src="assets/delete.png" alt="Deletar" class="icon-delete">
+                  </button>
+                </div>
+            </div>
+
+            <!-- Componente de Edição (Mostrado apenas se o veículo estiver em edição) -->
+            <app-tela-edicao *ngIf="veiculo.id === editingVeiculoId" [veiculo]="veiculo" (cancel)="onCancel()"
+                (save)="onSave($event)"></app-tela-edicao>
+      </div>
+    </div>
+  <ng-template #nenhumCadastro>
+      <div class="mensagem-vazia">Nenhum veículo cadastrado no momento.</div>
+  </ng-template>
+</div>

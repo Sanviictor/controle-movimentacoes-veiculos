@@ -1,0 +1,140 @@
+/* Define o fundo escuro translúcido que cobre toda a tela. */
+.modal-overlay {
+  position: fixed; /* Posiciona o elemento em relação à janela do navegador. */
+  inset: 0; /* Atalho para top: 0, right: 0, bottom: 0, left: 0. Cobre a tela inteira. */
+  background: rgba(0, 0, 0, 0.6); /* Cor de fundo preta com 60% de opacidade. */
+  display: flex; /* Usa Flexbox para centralizar o conteúdo. */
+  align-items: center; /* Alinha o conteúdo verticalmente ao centro. */
+  justify-content: center; /* Alinha o conteúdo horizontalmente ao centro. */
+  z-index: 1000; /* Garante que o modal fique na frente de todos os outros elementos. */
+  animation: fadeIn 0.3s ease; /* Animação de entrada suave. */
+}
+
+/* Define a caixa principal do modal (o "card" branco). */
+.modal-content {
+  background-color: #ffffff; /* Fundo branco. */
+  padding: 2rem; /* Espaçamento interno generoso. */
+  border-radius: 0.75rem; /* Cantos arredondados. */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil para efeito de profundidade. */
+  max-width: 500px; /* Largura máxima do modal. */
+  width: 90%; /* Ocupa 90% da largura disponível até o máximo. */
+  animation: fadeInScale 0.3s ease; /* Aplica a animação de entrada. */
+}
+
+/* Define a animação de entrada do modal. */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInScale {
+  from {
+    opacity: 0; /* Começa totalmente transparente. */
+    transform: scale(0.95); /* Começa um pouco menor. */
+  }
+  to {
+    opacity: 1; /* Termina totalmente visível. */
+    transform: scale(1); /* Termina no tamanho normal. */
+  }
+}
+
+/* Estilo para o título do modal. */
+.modal-content h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c; /* Cor de texto escura. */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-align: start;
+}
+
+/* Estilo para textos auxiliares (como a placa do veículo). */
+.modal-content p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+/* Container para cada grupo de label + input do formulário. */
+.form-group {
+  display: flex;
+  flex-direction: column; /* Coloca o label acima do input. */
+  margin-bottom: 15px;
+}
+
+/* Estilo para as labels (rótulos) do formulário. */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  color: #2d3748;
+}
+
+/* Estilo padrão para os inputs e selects do formulário. */
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total. */
+  transition: all 0.2s ease;
+}
+
+/* Efeito de destaque quando o usuário clica em um input ou select. */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4c51bf;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.2);
+}
+
+/* Área de botões de ação (Salvar, Cancelar). */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita. */
+  gap: 1rem; /* Espaço entre os botões. */
+  margin-top: 2rem;
+}
+
+/* Estilo base para os botões do modal. */
+.modal-actions button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+
+/* Estilo específico para o botão "Cancelar". */
+.btn-cancel {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.btn-cancel:hover {
+  background-color: #cbd5e0;
+}
+
+/* Estilo específico para o botão "Salvar". */
+.btn-save {
+  background-color: #222;
+  color: #ffffff;
+}
+
+.btn-save:hover {
+  background-color: #3b3b3b;
+}
+
+/* --- SEÇÃO DE RESPONSIVIDADE --- */
+/* Regra para telas menores, como celulares. */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+}

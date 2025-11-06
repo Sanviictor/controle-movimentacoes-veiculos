@@ -1,0 +1,105 @@
+/* Container principal para toda a seção de lista de veículos. */
+.card-list-container {
+  margin: 20px; /* Margem externa. */
+  padding: 20px; /* Espaçamento interno. */
+  background-color: #fff; /* Fundo branco. */
+  border-radius: 8px; /* Cantos arredondados. */
+  border: solid #e0e0e0 2px; /* Borda cinza claro. */
+}
+
+/* Estiliza o cabeçalho da lista (título e botão "Novo Veículo"). */
+.header-list {
+  display: flex; /* Habilita o Flexbox para alinhar os itens. */
+  justify-content: space-between; /* Coloca o título de um lado e o botão do outro. */
+  align-items: center; /* Alinha verticalmente os itens ao centro. */
+  margin-bottom: 20px; /* Espaço abaixo do cabeçalho. */
+}
+
+/* Estilo para o botão de "Novo Veículo". */
+.new-vehicle-button {
+  display: flex;
+  align-items: center; /* Alinha o ícone e o texto verticalmente. */
+  background-color: #212121; /* Fundo escuro. */
+  color: #fff; /* Texto branco. */
+  border: none; /* Sem borda. */
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  gap: 15px; /* Espaço entre o ícone e o texto. */
+}
+
+/* Estilo para o card de cada veículo na lista. */
+.veiculo-card {
+  display: flex;
+  justify-content: space-between; /* Coloca as informações de um lado e os botões de ação do outro. */
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px; /* Espaço entre os cards. */
+  border: solid #e0e0e0 1.5px;
+  border-radius: 8px;
+}
+
+/* Container para as informações do lado esquerdo do card (placa e detalhes). */
+.veiculo-info {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre a placa e os detalhes. */
+}
+
+/* Estilo para o "badge" da placa. */
+.placa {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: solid #e0e0e0 1px;
+}
+
+/* Estilo para o título (marca/modelo) dentro dos detalhes. */
+.detalhes h5 {
+  margin: 0; /* Remove a margem padrão. */
+  font-size: 16px;
+}
+
+/* Estilo para o parágrafo (motorista/cor) dentro dos detalhes. */
+.detalhes p {
+  margin: 0;
+  font-size: 12px;
+  color: #666; /* Cor de texto cinza. */
+}
+
+/* Container para os botões de ação (Editar, Deletar) no lado direito. */
+.veiculo-actions {
+  display: flex;
+  gap: 5px; /* Pequeno espaço entre os botões. */
+}
+
+/* Estilo base para os botões de ação (Editar, Deletar). */
+.action-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* Fundo transparente. */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+/* Estilo para a mensagem exibida quando a lista de veículos está vazia. */
+.mensagem-vazia {
+  font-weight: lighter;      
+  opacity: 0.7;              
+  margin-left: 15px;          
+  font-style: italic;         
+  color: #555;                
+  padding: 10px;              
+  border-left: 3px solid #ccc; /* Detalhe visual com uma borda à esquerda. */
+  background-color: #f9f9f9;  
+  border-radius: 4px;        
+}
+
+/* Estilo para os ícones dentro dos botões. */
+.icon-edit, .icon-delete, .icon-plus {
+  width: 15px;
+  align-items: center;
+}

@@ -1,0 +1,58 @@
+/* Define o container principal que vai segurar todos os cards. */
+.card-container {
+  display: grid; /* Habilita o layout de Grade (Grid), ideal para layouts 2D. */
+  grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de tamanho igual que ocupam o espaço disponível. */
+  gap: 20px; /* Define um espaço de 20px entre cada card (horizontal e vertical). */
+  padding: 20px; /* Adiciona um espaçamento interno no container. */
+}
+
+/* Estilo para cada card individual. */
+.card {
+  background-color: #fff; /* Fundo branco. */
+  border-radius: 8px; /* Cantos arredondados. */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar um efeito de elevação. */
+  padding: 20px; /* Espaçamento interno do card. */
+  display: flex; /* Habilita o Flexbox para organizar o conteúdo interno. */
+  flex-direction: column; /* Organiza os itens (header e body) em uma coluna, um abaixo do outro. */
+}
+
+/* Estilo para o cabeçalho de cada card (título e ícone). */
+.card-header {
+  display: flex; /* Usa Flexbox para o alinhamento. */
+  justify-content: space-between; /* Coloca o título de um lado e o ícone do outro, com espaço entre eles. */
+  align-items: center; /* Alinha verticalmente o título e o ícone. */
+  margin-bottom: 10px; /* Espaço abaixo do cabeçalho. */
+}
+
+/* Estilo para a imagem (ícone) dentro do cabeçalho do card. */
+.card-header img {
+  width: 40px; /* Largura fixa para o ícone. */
+}
+
+/* Estilo para o número grande (contador) no corpo do card. */
+.card-body h2 {
+  font-size: 2.5rem; /* Tamanho da fonte grande (aproximadamente 40px). */
+  font-weight: bold; /* Fonte em negrito. */
+  margin: 0; /* Remove a margem padrão do h2. */
+}
+
+/* Estilo para o parágrafo de descrição abaixo do número. */
+.card-body p {
+  color: #666; /* Cor de texto cinza. */
+  margin: 0; /* Remove a margem padrão do p. */
+}
+
+/* --- SEÇÃO DE RESPONSIVIDADE --- */
+/* Esta regra será aplicada em telas com largura máxima de 1200px (ex: tablets). */
+@media (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* Altera o layout para 2 colunas. */
+  }
+}
+
+/* Esta regra será aplicada em telas com largura máxima de 768px (ex: celulares). */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* Altera o layout para apenas 1 coluna. */
+  }
+}

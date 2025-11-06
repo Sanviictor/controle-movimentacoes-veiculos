@@ -1,0 +1,129 @@
+/* --- CONTAINER PRINCIPAL --- */
+/* Estiliza o bloco que envolve todo o componente da lista. */
+.list-container {
+  margin: 20px; /* Margem externa para dar espaço ao redor do componente. */
+  padding-bottom: 8px; /* Espaçamento interno inferior. */
+  border: solid #f0f0f0 2px; /* Borda cinza claro, sutil. */
+  border-radius: 8px; /* Cantos arredondados. */
+}
+
+/* --- CABEÇALHO DA LISTA --- */
+/* Alinha os itens do cabeçalho (ex: ícone e título) na horizontal. */
+.list-header {
+  display: flex; /* Ativa o layout flexbox. */
+  align-items: center; /* Alinha os itens verticalmente ao centro. */
+  margin-bottom: 10px; /* Espaço abaixo do cabeçalho, antes da lista de cards. */
+}
+
+/* Estiliza o título (h4) dentro do cabeçalho. */
+.list-header h4 {
+  margin: 0; /* Remove a margem padrão do h4. */
+  margin-left: 8px; /* Adiciona um espaço à esquerda, separando-o do ícone. */
+}
+
+/* --- LISTA DE CARDS HORIZONTAL --- */
+/* Este é o núcleo do layout. Cria a lista com rolagem horizontal. */
+.card-list {
+  display: grid; /* 1. Define o layout como Grade (Grid). */
+  grid-auto-flow: column; /* 2. Faz com que os itens fluam para o lado (em colunas), em vez de para baixo. */
+  grid-template-rows: repeat(2, auto); /* 3. (Opcional) Cria 2 linhas, otimizando o espaço vertical. Os itens preenchem a primeira e depois a segunda linha antes de continuar para o lado. */
+  gap: 15px; /* Espaçamento de 15px entre cada card. */
+  
+  overflow-x: auto; /* 4. Habilita a barra de rolagem HORIZONTAL apenas quando o conteúdo ultrapassa a largura do container. */
+  overflow-y: hidden; /* 5. Esconde a barra de rolagem vertical para evitar rolagem dupla. */
+  padding-bottom: 15px; /* Adiciona um preenchimento inferior para que a barra de rolagem não fique colada nos cards. */
+}
+
+/* --- ESTILIZAÇÃO DA BARRA DE ROLAGEM (BÔNUS) --- */
+/* ATENÇÃO: Funciona principalmente em navegadores baseados em WebKit (Chrome, Safari, Edge). */
+
+/* Define a altura da barra de rolagem. */
+.card-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Estiliza o "trilho" da barra de rolagem (o fundo). */
+.card-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Estiliza a própria barra de rolagem (o "polegar"). */
+.card-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* Muda a cor da barra ao passar o mouse sobre ela. */
+.card-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+
+/* --- ITENS INDIVIDUAIS (VEÍCULOS) --- */
+/* Estiliza a imagem do veículo. */
+.veiculo-img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain; /* Garante que a imagem caiba no espaço sem distorcer. */
+  margin-right: 10px; /* Espaço à direita da imagem. */
+}
+
+/* Define o layout e estilo de cada card. */
+.veiculo-card {
+  padding: 8px;
+  width: 375px; /* Largura fixa do card. Para responsividade, considere usar min-width. */
+  border-radius: 8px;
+  border: solid #cdcdcda4 2.5px;
+  
+  /* Layout interno do card */
+  display: flex;
+  align-items: center; /* Alinha os itens do card (textos e imagem) verticalmente ao centro. */
+  justify-content: space-between; /* Coloca um espaço máximo entre os itens: textos na esquerda e imagem na direita. */
+}
+
+/* Container para os textos dentro do card. */
+.veiculo-textos {
+  display: flex;
+  gap: 10px; /* Cria um espaço de 10px entre os elementos de texto (placa, nome, status). */
+}
+
+/* Classe modificadora para um estado específico do card, ex: "fora da garagem". */
+.veiculo-card.fora {
+  background-color: #fff;
+}
+
+/* Estiliza o texto da placa. */
+.placa {
+  font-weight: bold; /* Texto em negrito. */
+  background-color: #a89e9ecc; /* Fundo para destacar a placa. */
+  border-radius: 10px;
+  width: 90px;
+  text-align: center; /* Centraliza o texto da placa. */
+}
+
+/* Estiliza o nome do veículo/motorista. */
+.nome {
+  color: #333;
+}
+
+/* Estiliza o status do veículo. */
+.status {
+  font-size: 0.8em; /* Tamanho da fonte menor. */
+  color: #666; /* Cor de texto mais clara. */
+  align-content: center;
+}
+
+/* --- MENSAGEM DE LISTA VAZIA --- */
+/* Estiliza a mensagem exibida quando não há itens na lista. */
+.mensagem-vazia {
+  font-weight: lighter;       /* Fonte mais leve. */
+  opacity: 0.7;               /* Levemente transparente. */
+  margin-left: 15px;
+  font-style: italic;         /* Texto em itálico. */
+  color: #555;
+  padding: 10px;
+  border-left: 3px solid #ccc; /* Linha à esquerda para destaque visual. */
+  background-color: #f9f9f9;  /* Fundo sutil para diferenciar do resto. */
+  border-radius: 4px;
+}

@@ -1,0 +1,23 @@
+/* Estiliza o container principal do rodapé. */
+footer {
+  background-color: #f1f1f1; /* Define uma cor de fundo cinza bem claro. */
+  color: #333;              /* Define a cor do texto para um cinza escuro. */
+  text-align: center;      /* Centraliza todo o texto dentro do rodapé. */
+  padding: 10px 0;         /* Adiciona 10px de espaçamento interno em cima e embaixo, e 0 nas laterais. */
+  margin-top: 8px;         /* Cria um pequeno espaço acima do rodapé, separando-o do conteúdo principal. */
+  font-size: 0.9em;        /* Define um tamanho de fonte um pouco menor, para um visual mais discreto. */
+  
+  /* A propriedade 'bottom: 0' só tem efeito se 'position' for 'fixed', 'absolute', ou 'sticky'.
+     Se a intenção for um rodapé fixo no final da TELA, adicione 'position: fixed;'.
+     Se for para ficar no final do CONTEÚDO, esta linha pode ser removida. */
+  bottom: 0;
+
+  width: 100%;             /* Garante que o rodapé ocupe toda a largura da tela. */
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.1); /* Adiciona uma sombra sutil no topo do rodapé, para dar um efeito de profundidade. */
+}
+
+/* Estiliza o parágrafo dentro do rodapé. */
+footer p {
+  margin: 0; /* Remove a margem padrão do parágrafo, para um alinhamento mais preciso. */
+  font-weight: 500; /* Deixa a fonte com um peso médio, um pouco mais destacada que o normal. */
+}

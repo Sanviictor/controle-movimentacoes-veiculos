@@ -1,0 +1,83 @@
+<div class="historico-container">
+  <h3>Histórico de Movimentações</h3>
+
+  <div class="filtros-container">
+    <div class="filtro-item">
+      <label for="filtro-placa">Placa do Veículo</label>
+      <input type="text" id="filtro-placa" placeholder="Filtrar por placa..." [(ngModel)]="filtroPlaca">
+    </div>
+    <div class="filtro-item">
+      <label for="filtro-data-inicio">Data Início</label>
+      <input type="date" id="filtro-data-inicio" [(ngModel)]="filtroDataInicio">
+    </div>
+    <div class="filtro-item">
+      <label for="filtro-data-fim">Data Fim</label>
+      <input type="date" id="filtro-data-fim" [(ngModel)]="filtroDataFim">
+    </div>
+    <div class="filtro-actions">
+      <button class="btn-filtrar" (click)="aplicarFiltros()">Filtrar</button>
+      <button class="btn-limpar" (click)="limparFiltros()">Limpar</button>
+    </div>
+  </div>
+
+  <table class="historico-table">
+    <thead>
+      <tr>
+        <th>Placa</th>
+        <th>Motorista/Veículo</th>
+        <th>Tipo</th>
+        <th>Data e Hora</th>
+        <th>Quilometragem</th>
+        <th>Ações</th> </tr>
+    </thead>
+    <tbody *ngIf="paginaDeMovimentacoes">
+      <tr *ngFor="let movimentacao of paginaDeMovimentacoes.content">
+        <td>
+          <span class="placa">{{ movimentacao.veiculo.placa }}</span>
+        </td>
+        <td>{{ formatarNomeComposto(movimentacao.motorista) }} -  {{ movimentacao.veiculo.modelo }}</td>
+        <td>
+          <span class="tipo-movimento" 
+                [ngClass]="{'entrada': movimentacao.tipoMovimento === 'entrada', 'saida': movimentacao.tipoMovimento === 'saida'}">
+            {{ movimentacao.tipoMovimento | uppercase }}
+          </span>
+        </td>
+        <td>{{ movimentacao.dataHora | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>{{ movimentacao.quilometragem | number }} km</td>
+        <td>
+          <button class="btn-edit" (click)="abrirModalEdicao(movimentacao)">
+            <img src="assets/editar.png" alt="Editar" class="icon-edit">
+          </button>
+        </td>
+      </tr>
+      
+      <tr *ngIf="paginaDeMovimentacoes.content.length === 0">
+        <td colspan="6" class="no-records">Nenhum registro de movimentação encontrado.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="paginaDeMovimentacoes && paginaDeMovimentacoes.totalPages > 1" class="paginator">
+    <button (click)="paginaAnterior()" [disabled]="paginaDeMovimentacoes.number === 0">
+      &laquo; Anterior
+    </button>
+    
+    <span>Página {{ paginaDeMovimentacoes.number + 1 }} de {{ paginaDeMovimentacoes.totalPages }}</span>
+    
+    <button (click)="proximaPagina()" [disabled]="(paginaDeMovimentacoes.number + 1) === paginaDeMovimentacoes.totalPages">
+      Próximo &raquo;
+    </button>
+  </div>
+
+  <div *ngIf="!paginaDeMovimentacoes" class="loading">
+    Carregando histórico...
+  </div>
+
+ <app-editar-historico
+    *ngIf="movimentacaoSelecionada"
+    [movimentacaoParaEditar]="movimentacaoSelecionada"
+    (fechar)="fecharModalEdicao()"
+    (salvar)="onMovimentacaoSalva()">
+  </app-editar-historico>
+
+</div>

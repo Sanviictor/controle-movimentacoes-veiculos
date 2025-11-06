@@ -1,0 +1,46 @@
+<div class="card-container">
+  <div class="card">
+    <div class="card-header">
+      <h4>Veículos Cadastrados</h4>
+      <img src="../../assets/veiculo.png" alt="Ícone de veículos">
+    </div>
+    <div class="card-body">
+      <h2>{{ totalveiculos$ | async }}</h2>
+      <p>Total de veículos no sistema</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h4>Veículos Presentes</h4>
+      <img src="../../assets/veiculo_presente.png" alt="Ícone de veículos presentes">
+    </div>
+    <div class="card-body">
+      <h2>{{ veiculosPresentes$ | async }}</h2>
+      <p>Dentro da empresa agora</p>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <div class="card-header">
+      <h4>Entradas Hoje</h4>
+      <img src="assets/entradas.png" alt="Ícone de entrada">
+    </div>
+    <div class="card-body">
+      <h2>{{ entradasHoje$ | async }}</h2>
+      <p>Registros de entrada</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h4>Saídas Hoje</h4>
+      <img src="assets/saidas.png" alt="Ícone de saída">
+    </div>
+    <div class="card-body">
+      <h2>{{ saidasHoje$ | async }}</h2>
+      <p>Registros de saída</p>
+    </div>
+  </div>
+</div>

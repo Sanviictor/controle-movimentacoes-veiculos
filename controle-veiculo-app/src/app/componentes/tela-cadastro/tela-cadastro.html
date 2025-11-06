@@ -1,0 +1,46 @@
+<div class="edit-form-card">
+  <h4 class="form-title">Cadastrar Novo Veículo</h4>
+
+  <form #veiculoForm="ngForm" (ngSubmit)="onCadastrar(veiculoForm)">
+
+    <div class="form-grid">
+      <!-- Placa -->
+      <div class="form-group">
+        <label for="placa">Placa *</label>
+        <input type="text" id="placa" name="placa" [(ngModel)]="veiculo.placa" placeholder="ABC-1234" required #placa="ngModel">
+        <small class="error" *ngIf="placa.invalid && placa.touched">A placa é obrigatória.</small>
+      </div>
+
+      <!-- Motorista -->
+      <div class="form-group">
+        <label for="motorista">Motorista</label>
+        <input type="text" id="motorista" name="motorista" [(ngModel)]="veiculo.motorista" placeholder="Nome do motorista">
+      </div>
+
+      <!-- Marca -->
+      <div class="form-group">
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" name="marca" [(ngModel)]="veiculo.marca" placeholder="Toyota, Honda, etc.">
+      </div>
+
+      <!-- Modelo -->
+      <div class="form-group">
+        <label for="modelo">Modelo *</label>
+        <input type="text" id="modelo" name="modelo" [(ngModel)]="veiculo.modelo" placeholder="Bascula, Pipa, Strada" required #modelo="ngModel">
+        <small class="error" *ngIf="modelo.invalid && modelo.touched">O modelo é obrigatório.</small>
+      </div>
+
+      <!-- Cor -->
+      <div class="form-group">
+        <label for="cor">Cor</label>
+        <input type="text" id="cor" name="cor" [(ngModel)]="veiculo.cor" placeholder="Branco, Preto, etc.">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="action-button save-button" type="submit" [disabled]="veiculoForm.invalid">Cadastrar</button>
+      <button class="action-button cancel-button" type="button" (click)="onClose()">Cancelar</button>
+    </div>
+
+  </form>
+</div>

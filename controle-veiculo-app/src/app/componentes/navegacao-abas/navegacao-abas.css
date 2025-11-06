@@ -1,0 +1,50 @@
+/* --- ESTILOS GERAIS --- */
+/* Estilo global para links (tag <a>), geralmente usado para que as abas sejam links sem a aparência padrão. */
+a {
+  text-decoration: none; /* Remove o sublinhado padrão dos links. */
+  color: black;          /* Define a cor do texto dos links como preto. */
+}
+
+
+/* --- CONTAINER DAS ABAS --- */
+/* O bloco principal que envolve e posiciona todas as abas. */
+.abas-container {
+  display: flex;                      /* Ativa o layout Flexbox para alinhar as abas horizontalmente. */
+  justify-content: space-around;      /* Distribui as abas com espaço igual ao redor delas. */
+  background-color: #f0f0f0;          /* Cor de fundo cinza claro para o container. */
+  border-radius: 50px;                /* Cantos muito arredondados, criando um formato de "pílula". */
+  padding: 5px;                       /* Espaçamento interno para não colar as abas nas bordas. */
+  margin: 20px;                       /* Margem externa para afastar o componente de outros elementos. */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar uma leve profundidade. */
+}
+
+
+/* --- ABA INDIVIDUAL --- */
+/* Estilo para cada aba (botão) dentro do container. */
+.aba {
+  flex-grow: 1;                       /* Faz com que todas as abas cresçam igualmente para preencher o espaço disponível. */
+  background-color: transparent;      /* Fundo transparente por padrão; a cor virá do container. */
+  border: none;                       /* Remove qualquer borda padrão. */
+  font-size: 16px;                    /* Tamanho da fonte do texto da aba. */
+  padding: 15px 0;                    /* Espaçamento interno vertical de 15px (em cima e embaixo). */
+  cursor: pointer;                    /* Transforma o cursor em uma "mãozinha" para indicar que é clicável. */
+  border-radius: 50px;                /* Cantos arredondados para criar o efeito de pílula dentro do container. */
+  transition: all 0.3s ease;          /* Efeito de transição suave para todas as propriedades (cor, sombra) em 0.3s. */
+  text-align: center;                 /* Centraliza o texto dentro da aba. */
+}
+
+
+/* --- ESTADO ATIVO DA ABA --- */
+/* Estilo aplicado à aba que está atualmente selecionada. */
+.aba.active {
+  background-color: #fff;             /* Fundo branco para destacar a aba ativa. */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar um efeito de "elevação" sobre o container. */
+  font-weight: bold;                  /* Texto em negrito para ênfase visual. */
+}
+
+
+/* --- ESTADO HOVER DA ABA --- */
+/* Estilo para quando o mouse passa por cima de uma aba (que não está ativa). */
+.aba:hover {
+  background-color: #e0e0e0;          /* Muda a cor de fundo para um cinza mais escuro, dando feedback ao usuário. */
+}

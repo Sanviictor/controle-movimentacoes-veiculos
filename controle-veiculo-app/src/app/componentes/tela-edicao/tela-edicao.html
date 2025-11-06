@@ -1,0 +1,38 @@
+<div class="edit-form-card">
+  <h4>Editar Veículo</h4>
+  <form #veiculoForm="ngForm">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="placa">Placa *</label>
+        <input type="text" id="placa" [(ngModel)]="veiculoLocal.placa" name="placa" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motorista">Motorista</label>
+        <input type="text" id="motorista" [(ngModel)]="veiculoLocal.motorista" name="motorista">
+      </div>
+
+      <div class="form-group">
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" [(ngModel)]="veiculoLocal.marca" name="marca">
+      </div>
+
+      <div class="form-group">
+        <label for="modelo">Modelo *</label>
+        <input type="text" id="modelo" [(ngModel)]="veiculoLocal.modelo" name="modelo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cor">Cor</label>
+        <input type="text" id="cor" [(ngModel)]="veiculoLocal.cor" name="cor">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="action-button save-button" 
+              (click)="onSave()" 
+              [disabled]="veiculoForm.invalid">Atualizar</button>
+      <button class="action-button cancel-button" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>
