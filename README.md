@@ -113,8 +113,8 @@ A arquitetura segue o **padrão MVC**, garantindo separação de responsabilidad
 
 **Victor Emanuel Galvão dos Santos**
 💼 Desenvolvedor Full Stack | Spring Boot | Angular | MySQL
-🔗 [LinkedIn]([https://www.linkedin.com/in/victor-emanuel-galvao](https://www.linkedin.com/in/victor-emanuel-galv%C3%A3o-dos-santos-29a2b01a6/))
-📧 [victor.santos@example.com](mailto:victoremanuel3000@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/victor-emanuel-galv%C3%A3o-dos-santos-29a2b01a6/)
+📧 [victorsantos](mailto:victoremanuel3000@gmail.com)
 
 ---
 
